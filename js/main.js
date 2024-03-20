@@ -1,3 +1,7 @@
+//Samuel Monteiro da Silva - 36790 - ADS5NA
+
+
+// Função que pega as tags: peso e altura do html, e chama as funções de callback
 function getData() {
     let peso = document.getElementById("peso");
     let altura = document.getElementById("altura");
@@ -6,11 +10,14 @@ function getData() {
     validacao(peso, altura);
 }
 
+// Função para resetar o plano de fundo dos campos para o branco - #FFFFFF
 function setDefault(){
     peso.style.backgroundColor = '#ffffff';
     altura.style.backgroundColor = '#ffffff';
 }
 
+// Função que recebe os parametros do peso e valor, faz a validação de campo vazio e se forem do tipo string
+// no final ela retorna imc e o tipo de imc
 function validacao(pesoValor, alturaValor) {
     let peso = pesoValor;
     let altura = alturaValor;
@@ -28,12 +35,14 @@ function validacao(pesoValor, alturaValor) {
     }
 }
 
+// Caso caia em um erro de validação essa função será chamada. Ela manda um alert na tela com o erro, troca a cor do fundo do campo e coloca o foco no mesmo
 function tratamentoErro(tag, message) {
     tag.focus();
     tag.style.backgroundColor = '#eda29d';
     alert(message);
 }
 
+// Função que calcula e retorna tipo e valor do imc
 function calculaImc(pesoValor, alturaValor) {
     let peso = pesoValor;
     let altura = alturaValor;
@@ -60,6 +69,7 @@ function calculaImc(pesoValor, alturaValor) {
     return retorno;
 }
 
+// Função que define e imprime os valores nos campos html "valorImc" e "statusImc"
 function setData(Imc, messageRecebida){
     let imc = Imc;
     let message = messageRecebida;
